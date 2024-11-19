@@ -17,6 +17,7 @@ local api = {
 			s = s .. "\n" -- lua_modloader reserves the newline character for its id padding
 			-- we also use left to right generation so it probably won't conflict with the actual modloader
 		end
+		counter = counter + 1
 		return s
 	end,
 }
