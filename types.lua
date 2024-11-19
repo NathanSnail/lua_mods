@@ -1,0 +1,3 @@
+---@alias mod {[1]: string, [2]: table}
+---@class (exact) mod_api
+---@field acquire_id fun(key: string): string
