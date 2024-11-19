@@ -1,3 +1,6 @@
----@alias mod {[1]: string, [2]: table}
+---@alias mod {[1]: string, [2]: mod_calllback}
 ---@class (exact) mod_api
 ---@field acquire_id fun(key: string): string
+---@class (exact) mod_calllback
+---@field pre fun(api: mod_api)?
+---@field post fun(api: mod_api)?

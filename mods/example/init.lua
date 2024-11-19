@@ -1,4 +1,4 @@
----@diagnostic disable: lowercase-global
+---@type mod_calllback
 local M = {}
 
 _G["example.no_brain"] = function(body)
@@ -7,7 +7,6 @@ _G["example.no_brain"] = function(body)
 	return brain
 end
 
----@param api mod_api
 function M.post(api)
 	local old_creature_list = creature_list
 	function creature_list(...)
@@ -18,6 +17,13 @@ function M.post(api)
 			"data/scripts/lua_mods/mods/example/bodies/blob.bod",
 			"example.no_brain"
 		)
+		return unpack(r)
+	end
+
+	local old_init_biomes = init_biomes
+	function init_biomes(...)
+		local r = { old_init_biomes(...) }
+		add_creature_spawn_chance("STRT", api.acquire_id("example.blob"), 0.5, 1)
 		return unpack(r)
 	end
 end
