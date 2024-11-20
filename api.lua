@@ -1,3 +1,8 @@
+---@type loaded_mod[]
+LUA_MODLOADER_LOADED_MODS = LUA_MODLOADER_LOADED_MODS or {}
+---If you need to access the config in the callback generator this will do it, but its also passed to the hooks.
+---@type table?
+LUA_MODLOADER_CONFIG = LUA_MODLOADER_CONFIG or nil
 ---@type table<string, string>
 local id_map = {}
 local counter = 0
