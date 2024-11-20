@@ -1,4 +1,4 @@
----@type mod_calllback
+---@type mod_calllbacks
 local M = {}
 
 _G["example.no_brain"] = function(body)
@@ -7,9 +7,10 @@ _G["example.no_brain"] = function(body)
 	return brain
 end
 
-function M.post(api)
+function M.post(api, config)
+	local spawn_rate = config.spawn_rates or 0.2
 	local old_creature_list = creature_list
-	function creature_list(...)
+	creature_list = function(...)
 		local r = { old_creature_list(...) }
 
 		register_creature(
@@ -26,10 +27,10 @@ function M.post(api)
 	end
 
 	local old_init_biomes = init_biomes
-	function init_biomes(...)
+	init_biomes = function(...)
 		local r = { old_init_biomes(...) }
-		add_creature_spawn_chance("STRT", api.acquire_id("example.blob"), 0.2, 1)
-		add_creature_spawn_chance("STRT", api.acquire_id("example.small"), 0.2, 1)
+		add_creature_spawn_chance("STRT", api.acquire_id("example.blob"), spawn_rate, 1)
+		add_creature_spawn_chance("STRT", api.acquire_id("example.small"), spawn_rate, 1)
 		return unpack(r)
 	end
 end
