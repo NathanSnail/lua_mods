@@ -7,6 +7,10 @@ _G["example.no_brain"] = function(body)
 	return brain
 end
 
+_G["example.explosion_resist"] = function(body, x, y)
+	give_mutation(body, MUT_EXPLOSIVE_RESISTANCE)
+end
+
 function M.post(api, config)
 	local spawn_rate = config.spawn_rates or 0.2
 	local old_creature_list = creature_list
@@ -21,7 +25,8 @@ function M.post(api, config)
 		register_creature(
 			api.acquire_id("example.small"),
 			"data/scripts/lua_mods/mods/example/bodies/small.bod",
-			"example.no_brain"
+			"example.no_brain",
+			"example.explosion_resist"
 		)
 		return unpack(r)
 	end
