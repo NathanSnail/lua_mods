@@ -5,7 +5,7 @@
 ---@field callbacks mod_calllbacks
 ---@field config table
 ---@class (exact) mod_api
----@field acquire_id fun(key: string): string
+---@field acquire_id fun(key: string): id
 ---@class (exact) mod_calllbacks
 ---@field pre fun(api: mod_api, config: table)?
 ---@field post fun(api: mod_api, config: table)?

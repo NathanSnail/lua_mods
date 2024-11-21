@@ -1,14 +1,17 @@
 ---@type mod_calllbacks
 local M = {}
 
+---@type brain_function
 _G["example.no_brain"] = function(body)
+	---@type brain
 	local brain = {}
 	brain.rotation = 5 -- be a spinny
 	return brain
 end
 
-_G["example.explosion_resist"] = function(body, x, y)
-	give_mutation(body, MUT_EXPLOSIVE_RESISTANCE)
+---@type spawn_function
+_G["example.explosion_resist"] = function(body_id, x, y)
+	give_mutation(body_id, MUT_EXPLOSIVE_RESISTANCE)
 	return { nil, nil, x, y } -- this determines spawn extra info
 end
 
