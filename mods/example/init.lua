@@ -9,6 +9,7 @@ end
 
 _G["example.explosion_resist"] = function(body, x, y)
 	give_mutation(body, MUT_EXPLOSIVE_RESISTANCE)
+	return { nil, nil, x, y } -- this determines spawn extra info
 end
 
 function M.post(api, config)
