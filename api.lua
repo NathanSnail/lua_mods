@@ -26,12 +26,14 @@ local api = {
 	acquire_id = function(key)
 		local earlier = id_map[key]
 		if earlier then
+			---@diagnostic disable-next-line: return-type-mismatch
 			return earlier
 		end
 		local s = generate(counter)
 		print(s, counter, "\n")
 		id_map[key] = s
 		counter = counter + 1
+		---@diagnostic disable-next-line: return-type-mismatch
 		return s
 	end,
 }
