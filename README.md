@@ -3,6 +3,7 @@ This allows you to easily install and use lua mods, which can register new creat
 ## Installing
 To install add this to your scripts folder, so the path should look like data/scripts/lua_mods/README.md
 Then add the following the very start of your data/scripts/init.lua (so that it's the first line)
+
 **Do not name the folder lua_mods-main**
 ```lua
 dofile("data/scripts/lua_mods/pre.lua")
