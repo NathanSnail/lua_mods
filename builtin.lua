@@ -116,14 +116,14 @@
 ---@field dist number
 
 ---Returns a random int uniformly distributed on [min, max)
----@param min number `0`
----@param max number `1`
+---@param min number
+---@param max number
 ---@return number value
 function rand_int(min, max) end
 
 ---Returns a random number uniformly distributed on [min, max]
----@param min number `0`
----@param max number `1`
+---@param min number? `0`
+---@param max number? `1`
 ---@return number value
 function rand_float(min, max) end
 
