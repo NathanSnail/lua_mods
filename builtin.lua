@@ -4,7 +4,7 @@
 
 -- functions:
 ---@alias brain_function fun(body: body): brain
----@alias spawn_function fun(body_id: body_id, x: number, y: number): number[]
+---@alias spawn_function fun(body_id: body_id, x: number, y: number): number[] brain_values
 
 -- psuedo classes:
 
