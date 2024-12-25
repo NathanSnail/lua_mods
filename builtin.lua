@@ -59,7 +59,8 @@
 ---@field wall_dy number The normalized direction away from the nearest wall. `y`
 ---@field flow_x number The flow at the location of the cell nearest to a wall `x`
 ---@field flow_y number The flow at the location of the cell nearest to a wall `y`
----@field total_collision_force number The total force of all collsions between this body's cells and walls/other cells. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
+---@field total_cell_force number The total force of all collsions between this body's cells and other cells. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
+---@field total_wall_force number The total force of all collsions between this body's cells and walls. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
 ---@field mass number The total mass for all living cells in this body
 ---@field health number The total stored biomass for all living cells in this body
 ---@field max_health number The total stored biomass for all cells in the body plan
