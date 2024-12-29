@@ -9,3 +9,5 @@
 ---@class (exact) mod_calllbacks
 ---@field pre fun(api: mod_api, config: table)?
 ---@field post fun(api: mod_api, config: table)?
+---@field api_version integer
+---@field version string?

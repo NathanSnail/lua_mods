@@ -11,7 +11,21 @@ for _, v in ipairs(LUA_MODLOADER_MOD_LIST) do
 		LUA_MODLOADER_CONFIG = nil
 		table.insert(LUA_MODLOADER_LOADED_MODS, { name = v[1], callbacks = callbacks, config = v[2] })
 	else
-		print("ERROR: invalid mod list\n")
+		table.insert(LUA_MODLOADER_ERRORS, "ERROR: invalid mod list")
+	end
+end
+
+for _, v in ipairs(LUA_MODLOADER_LOADED_MODS) do
+	if (v.callbacks.api_version or 0) > LUA_MODLOADER_VERSION then
+		table.insert(
+			LUA_MODLOADER_ERRORS,
+			"Mod '" .. v.name .. v.callbacks.version and ("' - " .. v.callbacks.version)
+				or "' "
+					.. "requires a newer version of the modloader, modloader version is v"
+					.. LUA_MODLOADER_VERSION
+					.. " mod requires v"
+					.. v.callbacks.version
+		)
 	end
 end
 
