@@ -116,10 +116,24 @@
 ---@class (exact) dist_body: body
 ---@field dist number
 
+---Like print but prints to an in-game display
+---@param ... any
+function game_print(...) end
+
+---Draws a circle with the specified radius and color (r, g, b, a), where each color value is [0-1] in a linear color space. This is intended to be used for debugging
+---@param x number
+---@param y number
+---@param radius number? `1`
+---@param r number? `1`
+---@param g number? `1`
+---@param b number? `1`
+---@param a number? `1`
+function draw_circle(x, y, radius, r, g, b, a) end
+
 ---Returns a random int uniformly distributed on [min, max)
 ---@param min number
 ---@param max number
----@return number value
+---@return integer value
 function rand_int(min, max) end
 
 ---Returns a random number uniformly distributed on [min, max]
@@ -177,10 +191,11 @@ function get_cell_info(id) end
 ---@param spawn_function string? `nil` The name of the (global) lua function that is called when the creature is spawned. The function is of type `spawn_function`
 function register_creature(id, body_plan_filename, brain_function, spawn_function) end
 
----Gives the specified mutation to the specified body
+---Gives the specified mutation to the specified body, imbues is a list of cell id's to imbue applicable mutations with
 ---@param body_id body_id
 ---@param mutation_id mutation_id
-function give_mutation(body_id, mutation_id) end
+---@param imbues string[]? `{}`
+function give_mutation(body_id, mutation_id, imbues) end
 
 ---Adds a chance per map hex for the specified creature to spawn in the specified biome
 ---@param biome_id id
