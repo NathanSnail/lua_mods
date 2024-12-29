@@ -1,5 +1,7 @@
 ---@type mod_calllbacks
-local M = {}
+-- api_version should be the current version of the modloader, if your mod requires a more recent version than is installed we will error
+-- version is the version number of your mod
+local M = { api_version = 0, version = "1.0.0" }
 
 ---@type brain_function
 _G["example.no_brain"] = function(body)
