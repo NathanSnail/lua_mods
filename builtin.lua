@@ -184,7 +184,7 @@ function get_body_cell_id(body_id, q, r, use_closest) end
 ---@return cell? cell Returns nil if the cell does not exist
 function get_cell_info(id) end
 
----Registers a creature type with the specified parameters. This is only intended for use in creature_list().
+---Registers a creature type with the specified parameters. This is only intended for use in `creature_list()`.
 ---@param id id A 4 character string that will be used as the id for this creature type
 ---@param body_plan_filename string The filename of the .bod file for the creature's body plan. The path is relative to the exe location
 ---@param brain_function string? `nil` The name of the (global) lua function that simulates the creature's brain. The function is of type `brain_function`
@@ -194,7 +194,7 @@ function register_creature(id, body_plan_filename, brain_function, spawn_functio
 ---Gives the specified mutation to the specified body, imbues is a list of cell id's to imbue applicable mutations with
 ---@param body_id body_id
 ---@param mutation_id mutation_id
----@param imbues string[]? `{}`
+---@param imbues id[]? `{}`
 function give_mutation(body_id, mutation_id, imbues) end
 
 ---Adds a chance per map hex for the specified creature to spawn in the specified biome
@@ -204,7 +204,7 @@ function give_mutation(body_id, mutation_id, imbues) end
 ---@param xp integer The experience that this creature should drop
 function add_creature_spawn_chance(biome_id, creature_id, chance, xp) end
 
----Like add_creature_spawn_chance, but it will only spawn on walls, and can spawn multiple per map hex.
+---Like `add_creature_spawn_chance`, but it will only spawn on walls, and can spawn multiple per map hex.
 ---@param biome_id id
 ---@param creature_id id
 ---@param chance number The chance per roll per hex for the creature to spawn. The spawn chances for all creatures will be added together to get the chance for any plant to spawn, and the individual chances will be a weight to choose which plant to spawn. Each hex performs this check 3 times, so up to 3 plants can spawn per hex
