@@ -6,4 +6,4 @@ LUA_MODLOADER_MOD_LIST = {
 	-- "other_cool_mod",
 }
 -- This file is gitignored, useful if you are doing development
--- require("dev_config")
+-- dofile("data/scripts/lua_mods/dev_config.lua")
