@@ -1,18 +1,18 @@
-local api = dofile("data/scripts/lua_mods/api.lua")
+local api = dofile_once("data/scripts/lua_mods/api.lua")
 
 local old_creature_list = creature_list -- printing is only available in these later callbacks
 function creature_list(...)
-	print("\nActive mods:\n")
+	api.log("\nActive mods:\n")
 	for _, v in ipairs(LUA_MODLOADER_LOADED_MODS) do
-		print(v.name .. (v.callbacks.version and (" - " .. v.callbacks.version) or "") .. "\n")
+		api.log(v.name .. (v.callbacks.version and (" - " .. v.callbacks.version) or "") .. "\n")
 	end
 	if #LUA_MODLOADER_ERRORS ~= 0 then
 		game_print("Errors occured when loading mods")
-		print("\n\nERRORS LOADING MODS:\n\n")
+		api.log("\n\nERRORS LOADING MODS:\n\n")
 		for _, v in ipairs(LUA_MODLOADER_ERRORS) do
-			print(v .. "\n")
+			api.log(v .. "\n")
 		end
-		print("\nYOU NEED TO FIX THESE\n\n")
+		api.log("\nYOU NEED TO FIX THESE\n\n")
 	end
 	return old_creature_list(...)
 end
