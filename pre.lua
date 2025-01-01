@@ -45,6 +45,10 @@ for _, v in ipairs(LUA_MODLOADER_MOD_LIST) do
 	end
 end
 
+api.log("Active mods:\n")
+for _, v in ipairs(LUA_MODLOADER_LOADED_MODS) do
+	api.log(v.name .. (v.callbacks.version and (" - " .. v.callbacks.version) or "") .. "\n")
+end
 for _, v in ipairs(LUA_MODLOADER_LOADED_MODS) do
 	if (v.callbacks.api_version or 0) > LUA_MODLOADER_VERSION then
 		table.insert(
@@ -61,6 +65,9 @@ end
 
 for _, v in ipairs(LUA_MODLOADER_LOADED_MODS) do
 	if v.callbacks.pre then
-		v.callbacks.pre(api, v.config)
+		local success, err = pcall(v.callbacks.pre, api, v.config)
+		if not success then
+			table.insert(LUA_MODLOADER_ERRORS, "Error running prehook for mod " .. v.name .. " got an error: " .. err)
+		end
 	end
 end
