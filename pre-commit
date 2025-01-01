@@ -1,0 +1,7 @@
+#!/bin/bash
+rg "\-\- dofile_once" < mod_list.lua > /dev/null
+if [[ $? -ne 0 ]] ; then
+	echo "dofile fail"
+	exit 1
+fi
+# vim: set ft=sh
