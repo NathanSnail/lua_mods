@@ -25,6 +25,7 @@
 ---| 4 MUT_CELL_COMBINE
 ---| 5 MUT_REBIRTH
 ---| 6 MUT_DRIFTING
+---| 7 MUT_CANCER
 
 ---A value of 0 indicates a failure of some kind
 ---@alias maybe_body_id body_id | 0
