@@ -192,6 +192,11 @@ function get_cell_info(id) end
 ---@param spawn_function string? `nil` The name of the (global) lua function that is called when the creature is spawned. The function is of type `spawn_function`
 function register_creature(id, body_plan_filename, brain_function, spawn_function) end
 
+
+---Sets the seed for the next run, if seed is nil then it will clear any previously set seed
+---@param seed integer? `nil`
+function set_next_run_seed(seed) end
+
 ---Gives the specified mutation to the specified body, imbues is a list of cell id's to imbue applicable mutations with
 ---@param body_id body_id
 ---@param mutation_id mutation_id
