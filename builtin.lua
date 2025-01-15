@@ -5,6 +5,7 @@
 -- functions:
 ---@alias brain_function fun(body: body): brain
 ---@alias spawn_function fun(body_id: body_id, x: number, y: number): number[] brain_values
+---@alias death_function function
 
 -- psuedo classes:
 
@@ -190,8 +191,8 @@ function get_cell_info(id) end
 ---@param body_plan_filename string The filename of the .bod file for the creature's body plan. The path is relative to the exe location
 ---@param brain_function string? `nil` The name of the (global) lua function that simulates the creature's brain. The function is of type `brain_function`
 ---@param spawn_function string? `nil` The name of the (global) lua function that is called when the creature is spawned. The function is of type `spawn_function`
-function register_creature(id, body_plan_filename, brain_function, spawn_function) end
-
+---@param death_function string? `nil` The name of the (global) lua function that is called when the creature dies. The function is of type `death_function`
+function register_creature(id, body_plan_filename, brain_function, spawn_function, death_function) end
 
 ---Sets the seed for the next run, if seed is nil then it will clear any previously set seed
 ---@param seed integer? `nil`
