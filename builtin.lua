@@ -186,6 +186,11 @@ function get_body_cell_id(body_id, q, r, use_closest) end
 ---@return cell? cell Returns nil if the cell does not exist
 function get_cell_info(id) end
 
+
+---returns the id of the player body, or nil if there is none
+---@return body_id? id
+function get_player_body_id() end
+
 ---Registers a creature type with the specified parameters. This is only intended for use in `creature_list()`.
 ---@param id id A 4 character string that will be used as the id for this creature type
 ---@param body_plan_filename string The filename of the .bod file for the creature's body plan. The path is relative to the exe location
