@@ -18,6 +18,7 @@ function crash()
 	require("ffi").cast("int *", 0)[0] = 0
 end
 
+dofile_once("data/scripts/lua_mods/key_codes.lua")
 dofile_once("data/scripts/lua_mods/mod_list.lua")
 local api = dofile_once("data/scripts/lua_mods/api.lua")
 
