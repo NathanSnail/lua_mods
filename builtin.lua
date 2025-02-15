@@ -186,7 +186,6 @@ function get_body_cell_id(body_id, q, r, use_closest) end
 ---@return cell? cell Returns nil if the cell does not exist
 function get_cell_info(id) end
 
-
 ---returns the id of the player body, or nil if there is none
 ---@return body_id? id
 function get_player_body_id() end
