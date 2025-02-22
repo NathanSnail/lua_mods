@@ -6,19 +6,24 @@ USHORT GetAsyncKeyState(int vKey);
 ]])
 
 ---The unsafe api represents an extension to the main game api that is usable everywhere, but requires direct memory editing to work.
+local M
 ---@class unsafe_api
-local M = {
+M = {
+	---@class addrs
+	addrs = {
+		player_body_addr = 0x1401f49a0, -- the player body id global for md5 8bae632057a197aae64f6c1d3a2bfb40
+	},
 	---Throws an error if this function is outdated, currently it requires updating with every game version. If this function doesn't error it worked.
 	---@param id body_id
 	set_player_body_id = function(id)
-		local p_body_id = ffi.cast("int *", 0x1401f49a0) -- the player body id global for md5 8bae632057a197aae64f6c1d3a2bfb40
+		local p_player_body_id = ffi.cast("int *", M.addrs.player_body_addr)
 		local old_id = get_player_body_id()
-		if p_body_id[0] ~= old_id then
+		if p_player_body_id[0] ~= old_id then
 			error("Set player body id has an outdated address")
 		end
-		p_body_id[0] = id
-		if p_body_id[0] ~= get_player_body_id() then
-			p_body_id[0] = old_id
+		p_player_body_id[0] = id
+		if p_player_body_id[0] ~= get_player_body_id() then
+			p_player_body_id[0] = old_id
 			error("Set player body id just corrupted some random memory, attempting to recover")
 		end
 	end,

@@ -2,7 +2,7 @@
 LUA_MODLOADER_LOADED_MODS = LUA_MODLOADER_LOADED_MODS or {}
 ---@type string[]
 LUA_MODLOADER_ERRORS = {}
-LUA_MODLOADER_VERSION = LUA_MODLOADER_VERSION or 2
+LUA_MODLOADER_VERSION = LUA_MODLOADER_VERSION or 3
 ---If you need to access the config in the callback generator this will do it, but its also passed to the hooks.
 ---@type table?
 LUA_MODLOADER_CONFIG = LUA_MODLOADER_CONFIG or nil
