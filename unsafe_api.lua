@@ -20,7 +20,7 @@ M = {
 		},
 	},
 	const = {
-		cell_size = 0x2e,
+		cell_size = 0x2e, -- 8bae632057a197aae64f6c1d3a2bfb40
 	},
 	---Throws an error if this function is outdated, currently it requires updating with every game version. If this function doesn't error it worked.
 	---@param id body_id
