@@ -12,6 +12,7 @@ M = {
 	---@class addrs
 	addrs = {
 		player_body_addr = 0x1401f49a0, -- the player body id global for md5 8bae632057a197aae64f6c1d3a2bfb40
+		---@class addrs_cell
 		cell = {
 			default = 0x1401f2dd8, -- 8bae632057a197aae64f6c1d3a2bfb40
 			num_cells = 0x1401f4510, -- 8bae632057a197aae64f6c1d3a2bfb40
