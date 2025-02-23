@@ -12,6 +12,14 @@ M = {
 	---@class addrs
 	addrs = {
 		player_body_addr = 0x1401f49a0, -- the player body id global for md5 8bae632057a197aae64f6c1d3a2bfb40
+		cell = {
+			default = 0x1401f2dd8, -- 8bae632057a197aae64f6c1d3a2bfb40
+			num_cells = 0x1401f4510, -- 8bae632057a197aae64f6c1d3a2bfb40
+			array_start = 0x1401f4508, -- 8bae632057a197aae64f6c1d3a2bfb40
+		},
+	},
+	const = {
+		cell_size = 0x2e,
 	},
 	---Throws an error if this function is outdated, currently it requires updating with every game version. If this function doesn't error it worked.
 	---@param id body_id
