@@ -16,6 +16,9 @@ M = {
 		cell = {
 			default = 0x1401f2dd8, -- 8bae632057a197aae64f6c1d3a2bfb40
 			num_cells = 0x1401f4510, -- 8bae632057a197aae64f6c1d3a2bfb40
+			other_num_cells = 0x140501e20, -- 8bae632057a197aae64f6c1d3a2bfb40
+			index_array = 0x1404fde20, -- 8bae632057a197aae64f6c1d3a2bfb40
+			probabilities_array_start = 0x1404ffe20, -- 8bae632057a197aae64f6c1d3a2bfb40
 			array_start = 0x1401f4508, -- 8bae632057a197aae64f6c1d3a2bfb40
 		},
 	},
