@@ -9,13 +9,13 @@
 
 -- psuedo classes:
 
----Internally an *integer*
+---Internally an `integer`
 ---@class body_id
 
----Internally an *integer*
+---Internally an `integer`
 ---@class cell_id
 
----Internally a *string*
+---Internally a `string`
 ---@class id: string
 
 ---@alias mutation_id
@@ -207,6 +207,12 @@ function set_next_run_seed(seed) end
 ---@param mutation_id mutation_id
 ---@param imbues id[]? `{}`
 function give_mutation(body_id, mutation_id, imbues) end
+
+---Gives the id of the combo cell. If the specified combo does not already exist, it will be created. The material ids can either be an `int` or a 4 character string
+---@param material_id1 string | integer
+---@param material_id2 string | integer
+---@return integer
+function get_combo_id(material_id1, material_id2) end
 
 ---Adds a chance per map hex for the specified creature to spawn in the specified biome
 ---@param biome_id id
