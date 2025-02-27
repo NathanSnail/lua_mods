@@ -61,7 +61,8 @@
 ---@field wall_dy number The normalized direction away from the nearest wall. `y`
 ---@field flow_x number The flow at the location of the cell nearest to a wall `x`
 ---@field flow_y number The flow at the location of the cell nearest to a wall `y`
----@field total_cell_force number The total force of all collsions between this body's cells and other cells. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
+---@field total_cell_energy number The total force of all collsions between this body's cells and other cells. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
+---@field vision_radius number The current vision radius for this body, normally 1000 but can be reduced by things like ink cells
 ---@field total_wall_force number The total force of all collsions between this body's cells and walls. This is the sum of the magnitudes, not a vector so it can be used to determine if the body is colliding even if the net force is 0
 ---@field mass number The total mass for all living cells in this body
 ---@field health number The total stored biomass for all living cells in this body
@@ -91,10 +92,12 @@
 ---@field health number The stored biomass in the cell
 ---@field voltage number The cell's voltage
 ---@field dvoltage number The rate of change of the voltage, currently only used by inductive cells
+---@field temperature number The temperature of the cell, cells start taking heat damage at 0.5
 ---@field shock number The shock value of the cell
 ---@field poison number The amount of poison in the cell
 ---@field mutagen number The amount of mutagenic poison in the cell
 ---@field value number A general purpose variable used by certain cell types
+---@field value2 number Another general purpose variable used by certain cell types
 ---@field mass number The mass of the cell
 ---@field phasing number The amount of phasing the cell has, 0 is not phasing and 1 is a normally powered phasing cell
 ---@field stickyness number The stickyness of the cell
@@ -164,12 +167,14 @@ function wall_map(x, y) end
 ---@return boolean can_see true if there are no walls within radius r of the line between a & b, false otherwise
 function line_of_sight(ax, ay, bx, by, r) end
 
+---Returns a list of all bodies matching the parameters that can be seen by the specified body. One body is visible from another if their cost_centers are within range of each other and there is a line of sight between them. Bodies in a safe zone are always ignored.
 ---@param body_id body_id The body id of the body to search around
 ---@param range number The maximum range to find bodies within, the upper limit is 1000
----@param no_children boolean `false` If true, parts that broke off of creatures will be ignored, if false only the children of this body will be returned (temporary performance fix)
+---@param no_children boolean? `false` If true, parts that broke off of creatures will be ignored, if false only the children of this body will be returned (temporary performance fix)
 ---@param ignored_team integer? `nil` If set, bodies on this team will not be returned
+---@param no_line_of_sight boolean? `false` If true, the line of sight check will be skipped
 ---@return dist_body[] bodies In addition to the normal body properties, each body will contain an entry called dist, which contains the distance away from the searching body
-function get_visible_bodies(body_id, range, no_children, ignored_team) end
+function get_visible_bodies(body_id, range, no_children, ignored_team, no_line_of_sight) end
 
 ---@param id body_id
 ---@return body?
